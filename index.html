@@ -1,180 +1,103 @@
 <!DOCTYPE html>
 
-<script>
-
-const fade = (e) => {
-  e.target.classList.toggle('faded')
-}
-
-const resetCards = () => {
-  const cards = document.querySelectorAll('.card')
-  cards.forEach(card => {
-    card.classList.remove('faded')
-  })
-}
-
-window.onload = function() {
-  const cards = document.querySelectorAll('.card')
-  cards.forEach(card => {
-    card.addEventListener('click', fade)
-  })
-}
-
-</script>
+<head>
+  <script src="scripts.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
 
 <html>
 <body>
   <div class="container">
     <h3 class="mb"> YOU </h3>
     <div class="row mb">
-      <div class="card bg-grey"> 1 </div>
-      <div class="card bg-grey"> 2 </div>
-      <div class="card bg-green"> 3 </div>
-      <div class="card bg-green"> 4 </div>
-      <div class="card bg-blue"> 5 </div>
-      <div class="card bg-blue"> 6 </div>
-      <div class="card bg-purple"> 7 </div>
-      <div class="card bg-purple"> 8 </div>
-      <div class="card bg-red"> 9 </div>
-      <div class="card bg-gold"> 10 </div>
+      <div class="card bg-grey" data-side="Y" data-num=1>
+        <p class="cnumber">1</p>
+        <p class="cprob">-</p>
+      </div>
+      <div class="card bg-grey" data-side="Y" data-num=2>
+        <p class="cnumber">2</p>
+        <p class="cprob">-</p>
+      </div>
+      <div class="card bg-green" data-side="Y" data-num=3>
+        <p class="cnumber">3</p>
+        <p class="cprob">-</p>
+      </div>
+      <div class="card bg-green" data-side="Y" data-num=4>
+        <p class="cnumber">4</p>
+        <p class="cprob">-</p>
+      </div>
+      <div class="card bg-blue" data-side="Y" data-num=5>
+        <p class="cnumber">5</p>
+        <p class="cprob">-</p>
+      </div>
+      <div class="card bg-blue" data-side="Y" data-num=6>
+        <p class="cnumber">6</p>
+        <p class="cprob">-</p>
+      </div>
+      <div class="card bg-purple" data-side="Y" data-num=7>
+        <p class="cnumber">7</p>
+        <p class="cprob">-</p>
+      </div>
+      <div class="card bg-purple" data-side="Y" data-num=8>
+        <p class="cnumber">8</p>
+        <p class="cprob">-</p>
+      </div>
+      <div class="card bg-red" data-side="Y" data-num=9>
+        <p class="cnumber">9</p>
+        <p class="cprob">-</p>
+      </div>
+      <div class="card bg-gold" data-side="Y" data-num=10>
+        <p class="cnumber">10</p>
+        <p class="cprob">-</p>
+      </div>
     </div>
     <h3 class="mb" style="margin-top: 20px;"> OPPONENT </h3>
     <div class="row mb">
-      <div class="card bg-grey"> 1 </div>
-      <div class="card bg-grey"> 2 </div>
-      <div class="card bg-green"> 3 </div>
-      <div class="card bg-green"> 4 </div>
-      <div class="card bg-blue"> 5 </div>
-      <div class="card bg-blue"> 6 </div>
-      <div class="card bg-purple"> 7 </div>
-      <div class="card bg-purple"> 8 </div>
-      <div class="card bg-red"> 9 </div>
-      <div class="card bg-gold"> 10 </div>
+      <div class="card bg-grey" data-side="O" data-num=1>
+        <p class="cnumber">1</p>
+        <p class="cprob">-</p>
+      </div>
+      <div class="card bg-grey" data-side="O" data-num=2>
+        <p class="cnumber">2</p>
+        <p class="cprob">-</p>
+      </div>
+      <div class="card bg-green" data-side="O" data-num=3>
+        <p class="cnumber">3</p>
+        <p class="cprob">-</p>
+      </div>
+      <div class="card bg-green" data-side="O" data-num=4>
+        <p class="cnumber">4</p>
+        <p class="cprob">-</p>
+      </div>
+      <div class="card bg-blue" data-side="O" data-num=5>
+        <p class="cnumber">5</p>
+        <p class="cprob">-</p>
+      </div>
+      <div class="card bg-blue" data-side="O" data-num=6>
+        <p class="cnumber">6</p>
+        <p class="cprob">-</p>
+      </div>
+      <div class="card bg-purple" data-side="O" data-num=7>
+        <p class="cnumber">7</p>
+        <p class="cprob">-</p>
+      </div>
+      <div class="card bg-purple" data-side="O" data-num=8>
+        <p class="cnumber">8</p>
+        <p class="cprob">-</p>
+      </div>
+      <div class="card bg-red" data-side="O" data-num=9>
+        <p class="cnumber">9</p>
+        <p class="cprob">-</p>
+      </div>
+      <div class="card bg-gold" data-side="O" data-num=10>
+        <p class="cnumber">10</p>
+        <p class="cprob">-</p>
+      </div>
     </div>
 
     <button class="btn" onclick="resetCards()"> RESET </button>
+    <button class="btn" onclick="calcProbabilities()"> CALCULATE </button>
   </div>
 
 </body>
 </html>
-
-<style>
-
-  body {
-    font-family: "Lucida Console", "Courier New", monospace;
-  }
-
-  h3 {
-    text-align: center;
-    font-size: 100px;
-    margin: 0;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  .row {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .card {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-    font-size: 124px;
-    font-weight: bold;
-    text-align: center;
-    width: 100%;
-    height: 200px;
-    margin: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 3px 3px 0.1em #1A1A1A;
-    transition: transform 0.4s;
-  }
-
-  .card:hover {
-    transform: scale(1.075);
-  }
-
-  .mb {
-    margin-bottom: 20px;
-  }
-
-  .btn {
-    align-items: center;
-    background-color: #ddd;
-    border-radius: 12px;
-    box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
-    box-sizing: border-box;
-    color: #121212;
-    cursor: pointer;
-    display: inline-flex;
-    flex: 1 1 auto;
-    font-family: Inter,sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    justify-content: center;
-    line-height: 1;
-    margin-top: 20px;
-    outline: none;
-    padding: 1rem 1.2rem;
-    text-align: center;
-    text-decoration: none;
-    transition: box-shadow .2s,-webkit-box-shadow .2s;
-    white-space: nowrap;
-    border: 0;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-  }
-
-  .btn:hover {
-    box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
-  }
-
-  .faded {
-    opacity: 0.2;
-  }
-
-  .faded:hover {
-    transform: scale(1);
-  }
-
-  .bg-grey {
-    background-color: gray;
-  }
-
-  .bg-green {
-    background-color: green;
-  }
-
-  .bg-blue {
-    background-color: blue;
-  }
-
-  .bg-purple {
-    background-color: purple;
-  }
-
-  .bg-red {
-    background-color: red;
-  }
-
-  .bg-gold {
-    background-color: goldenrod;
-  }
-
-  .btn {
-    justify-self: center;
-    align-items: center;
-    align-self: center;
-  }
-
-
-</style>
